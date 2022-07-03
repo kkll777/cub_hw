@@ -1,0 +1,28 @@
+server:
+  port: 9100 # 伺服器的port號
+
+spring:
+  h2:
+    console:
+      enabled: true
+  datasource:
+    url: jdbc:h2:mem:todolist # h2 database 連接位址
+    driver-class-name: org.h2.Driver # 配置driver
+    username: sa # database 用戶名
+    password:  # database 密碼
+  sql:
+    init:
+      encoding: utf-8 # SQL scripts encoding.
+      schema-locations: classpath:init.sql
+      data-locations: classpath:data.sql
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: none
+
+  output:
+    ansi:
+      enabled: always
+
+coinDeskApi: "https://api.coindesk.com/v1/bpi/currentprice.json"
